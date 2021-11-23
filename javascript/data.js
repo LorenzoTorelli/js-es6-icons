@@ -1,4 +1,4 @@
-[
+const icone = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -112,3 +112,23 @@
 		color: 'blue'
 	}
 ];
+
+
+
+function createBox(i) {
+	const {name,prefix,type,family,color} = icone[i];
+	let	divBox = `<div class="col-9 col-sm-6 col-md-4 col-lg-2 mc-card">
+				<i class="${family} ${prefix+name} mc-icon-${color}"></i>
+				<h5>${name}</h5>
+			</div>`
+	return divBox;
+}
+
+const container = document.getElementById("mc-box-container");
+let boxHTMl = '';
+for (let i in icone) {
+	let box = createBox(i);
+	boxHTMl += box;
+}
+
+container.innerHTML = boxHTMl;
